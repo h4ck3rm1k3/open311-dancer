@@ -27,3 +27,9 @@ template: "simple"
 #     start_tag: '[%'
 #     end_tag:   '%]'
 
+traces: true
+log : core
+show_errors: true
+port : 5000
+
+auto_reload: true
