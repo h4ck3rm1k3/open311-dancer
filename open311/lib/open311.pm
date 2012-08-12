@@ -38,6 +38,12 @@ get '/requests.json'     => sub {
 
 get '/requests/('. $request_id_re . '):format'     => sub {
 #  jurisdiction_id
+    my $requestid=splat;
+    if ($requestid eq "missing")
+    {
+	return ;
+    }
+    
     my $response_body= to_json(	
 	#array of responses
 	[
