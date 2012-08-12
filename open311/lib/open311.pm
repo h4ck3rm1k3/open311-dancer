@@ -42,6 +42,7 @@ get '/requests/('. $request_id_re . '):format'     => sub {
 	#array of responses
 	[
 
+	 ######################################################
 	 # only the first is used
 	 {
 	     service_request_id => "1234567",
@@ -49,33 +50,44 @@ get '/requests/('. $request_id_re . '):format'     => sub {
 	     address => "Title, needs comma? , comma",
 	     requested_datetime => "2011-01-31 10:10:10",
 	     status => "open",
+	     description => "some description",
+	     agency_responsible => "agency_responsible",
+	     extended_attributes=> {
+		 service_request_id => "1234",
+		 channel => "Funky!",
+	     },
 	     notes => [
-		 {
-		     
+		 ###NOTE 1 #################
+		 {		     
 		     datetime => "2011-01-31 10:10:10",
 		     text => "A note",
+		     summary => "Summary",
+		     description=> "Description",
 		     type => "no_follow_on",
-		 },
-		 
-		 #
+		     extended_attributes => {
+			 service_name => "Service Name",
+			 agency_responsible => "agency_responsible",
+			 closed_datetime => "2011-01-31 10:10:10",
+		     },
+		 },		 
+		 ###NOTE 2 #################
 		 {
 		     datetime => "2011-01-31 10:10:10",
 		     text => "another one",
+		     summary => "Summary",
+		     description=> "Description",
 		     type => "follow_on",
 		     extended_attributes=> {
-			 service_request_id => "1234"
+			 service_request_id => "1234",
+			 service_name => "Service Name",
+			 agency_responsible => "agency_responsible",
+			 closed_datetime => "2011-01-31 10:10:10",			     
 		     }
 		 }
-		 ],
-	     "hello" => 10,
-	     'this' => [
-		 "should",
-		 "be",
-		 "a",
-		 "request"
-		 ]
+		 ###END OF NOTES #################
+		 ],	     
 	 }
-	 
+	 ## end of request	 
 	]
 	);
     debug "going to return $response_body\n";
