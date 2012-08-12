@@ -44,6 +44,8 @@ get '/requests/('. $request_id_re . '):format'     => sub {
 
 	 # only the first is used
 	 {
+	     service_request_id => "1234567",
+	     service_name => "the name of the service",
 	     address => "Title, needs comma? , comma",
 	     requested_datetime => "2011-01-31 10:10:10",
 	     status => "open",
