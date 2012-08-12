@@ -1,7 +1,6 @@
 package Open311::Spec;
 use Moose; # automatically turns on strict and warnings
 use Text::MediawikiFormat;
-use Text::MediawikiFormat 'wikiformat';
 
 sub readSpec {
     my $self=shift;
